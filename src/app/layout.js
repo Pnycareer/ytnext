@@ -1,5 +1,4 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,15 +20,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Google Analytics tag */}
-        <Script
+        {/* Google Analytics tag (plain HTML style) */}
+        <script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=G-KPQWDJ9QG9`}
-          strategy="afterInteractive"
-        />
-        <Script
-          id="gtag-init"
-          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-KPQWDJ9QG9"
+        ></script>
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -38,7 +34,7 @@ export default function RootLayout({ children }) {
               gtag('config', 'G-KPQWDJ9QG9');
             `,
           }}
-        />
+        ></script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
